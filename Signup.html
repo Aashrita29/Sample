@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Social Media - Sign Up</title>
+  <link rel="stylesheet" href="Signup.css">
+</head>
+<body>
+  <div class="container">
+    <img src="images/LOGO.png" alt="Logo">
+    <h2>Sign Up</h2>
+    <form action="#" method="post">
+      <input type="text" name="fullname" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <input type="submit" value="Sign Up">
+    </form>
+    <div class="toggle-form">
+      <p>Already have an account? <a href="login.html" onclick="toggleLogin()">Login</a></p>
+    </div>
+  </div>
+
+  <script>
+    // Function to toggle to the login form
+    function toggleLogin() {
+      var signupForm = document.querySelector('form');
+      signupForm.reset(); // Reset signup form fields
+      signupForm.setAttribute('action', '#'); // Update form action attribute
+      signupForm.querySelector('h2').textContent = 'Login'; // Update form heading
+      signupForm.querySelector('input[type="submit"]').value = 'Login'; // Update submit button value
+      var loginLink = signupForm.querySelector('.toggle-form a');
+      loginLink.textContent = "Don't have an account? Sign Up"; // Update toggle link text
+      loginLink.onclick = toggleSignup; // Update toggle link onclick function
+    }
+
+    // Function to toggle to the sign-up form
+    function toggleSignup() {
+      var loginForm = document.querySelector('form');
+      loginForm.reset(); // Reset login form fields
+      loginForm.setAttribute('action', '#'); // Update form action attribute
+      loginForm.querySelector('h2').textContent = 'Sign Up'; // Update form heading
+      loginForm.querySelector('input[type="submit"]').value = 'Sign Up'; // Update submit button value
+      var signupLink = loginForm.querySelector('.toggle-form a');
+      signupLink.textContent = "Already have an account? Login"; // Update toggle link text
+      signupLink.onclick = toggleLogin; // Update toggle link onclick function
+    }
+  </script>
+</body>
+</html>
